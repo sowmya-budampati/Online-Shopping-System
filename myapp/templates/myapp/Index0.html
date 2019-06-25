@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{#{% load staticfiles %}#}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+{#    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}" />#}
+    <title>Online Store APP</title>
+</head>
+<body>
+    {% if cat_list %}
+        <h2>List of Categories</h2>
+        <ol>
+            {% for cat in cat_list %}
+                <li><a href="{% url 'myapp:detail' cat.id %}"> {{ cat.name}} </a></li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <strong>There are no available Categories!</strong>
+    {% endif %}
+    <li class="hbar1"><a href="{% url 'myapp:about' %}" >About page</a></li>
+    <li class="hbar1"><a href="{% url 'myapp:home' %}" >Home page</a></li>
+</body>
+</html>

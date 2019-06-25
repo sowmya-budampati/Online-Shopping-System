@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+<body>
+ {% if proddetail %}
+ <h1>Product Detail</h1>
+ <h3>Name: {{proddetail.name}} </h3>
+ <h3>People Interested: {{proddetail.interested}} </h3>
+ <h3>Price: {{proddetail.price}} </h3>
+ {% if proddetail.stock <= 0  %}
+ <h3>Message: Product Not available</h3>
+ {% endif %}
+ {% endif %}
+ <form action="../{{proddetail.id}}/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+ </form>
+     <!-- <p><a href="about">About page</a></p> -->
+</body>
+{% endblock %}
+{% block links %}
+     <li class="hbar1"><a href="../about">Find out about this site</a></li>
+     <li class="hbar1"><a href = "../../myapp/">Click here to return to main page</a><br/></li>
+         <li class="hbar1"><a href = "../products">Products</a><br/></li>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+<h1>
+    {% block myhdg %}
+        Hello
+        {{ client.first_name }}
+    {% endblock %}
+</h1>
+{% block body_block %}
+    <body>
+    {% if cat_list %}
+        <h2>List of Categories</h2>
+        <ol>
+            {% for cat in cat_list %}
+                <li><a href="{% url 'myapp:detail' cat.id %}"> {{ cat.name}} </a></li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <strong>There are no available Categories!</strong>
+    {% endif %}
+    <li class="hbar1"><a href="{% url 'myapp:about' %}" >About page</a></li>
+    <li class="hbar1"><a href="{% url 'myapp:home' %}" >Home page</a></li>
+</body>
+{% endblock %}

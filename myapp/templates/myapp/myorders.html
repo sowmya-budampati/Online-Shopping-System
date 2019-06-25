@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+<h1>
+    {% block myhdg %}
+        Hello
+        {{ client.first_name }}
+    {% endblock %}
+</h1>
+{% block body_block %}
+<body>
+{% if myorderlist %}
+<h1>List of Products</h1>
+{% for m in myorderlist %}
+<ol>
+{{ m.Product}}
+</ol>
+{% endfor %}
+{% else %}
+<strong>There are no orders by you!</strong>
+{% endif %}
+</body>
+{% endblock %}

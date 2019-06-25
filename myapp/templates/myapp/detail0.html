@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{#{% load staticfiles %}#}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{#    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}" />#}
+    <title>Detail0</title>
+</head>
+<body>
+    <h1>List of available products</h1>
+    {% if products %}
+        <ol>
+            {% for prod in products %}
+                <li><a href="{% url 'myapp:product_detail' prod.id %}">{{ prod.name }} </a>  </li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <strong>There are no Products available</strong>
+    {% endif %}
+
+</body>
+</html>
